@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+@font-face {
+  font-family: "Braniella";
+  src: url("Fontes/Braniella.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+}
+
+:root {
+  --font1: #56070c;
+  --font2: #280903;
+  --color1: #873632;
+  --color2: #a9534d;
+  --color3: #075651;
+}
+
+body {
+  background: linear-gradient(135deg, var(--color1), var(--color2));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: var(--font2);
+}
+
+header .logo {
+  display: inline-flex;
+  padding: 20px;
+  margin: 20px;
+}
+
+header .logo img {
+  margin-right: 25px;
+}
+
+.menu {
+  background-color: var(--color3);
+  position: relative; /* Adicione esta linha */
+  margin-bottom: 40px;
+}
+
+.menu li {
+  display: inline-block;
+  margin: 30px 10px;
+}
+
+.menu li a {
+  display: block;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.menu li a:hover {
+  color: var(--font2);
+  text-decoration: underline;
+  text-decoration-color: var(--font2);
+}
+
+.dropdown-menu {
+  position: absolute;
+  box-shadow: 0 0 2px #000;
+  display: none;
+  background-color: #333;
+  color: var(--font1);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+a:hover {
+  color: var(--font2);
+}
+
+/* Adicione ao seu style.css */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gallery-item {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0002;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+  .gallery-item {
+    width: 100px;
+    height: 100px;
+  }
+  .gallery {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .gallery-item {
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Estilo para as seções de projetos */
+#frontend,
+#backend,
+#uxUi {
+  color: var(--font1);
+  font-size: 1.2em;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  padding-left: 20px;
+}
+#frontend a,
+#backend a,
+#uxUi a {
+  color: var(--font1);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 35px;
+}
+#frontend a:hover,
+#backend a:hover,
+#uxUi a:hover {
+  color: var(--font2);
+  text-decoration: underline;
+}
+
+main .contacto,
+.minhas-skills {
+  border: 0.3px solid var(--font1);
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.contacto a:hover {
+  background-color: var(--font2);
+  color: #fff;
+}
+
+.contacto h2 {
+  margin-bottom: 10px;
+}
+
+.contacto p {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  color: var(--font1);
+}
+
+h1 {
+  font-family: "Braniella";
+  text-align: center;
+  font-size: 50px;
+  color: var(--font1);
+}
+h2 {
+  color: var(--font1);
+  font-size: 42px;
+  margin-left: 20px 0;
+}
+
+.minhas-skills {
+  color: var(--font1);
+  margin-bottom: 40px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.services,
+#meus-trabalhos {
+  padding: 20px;
+  margin: 20px;
+  border: 0.3px solid var(--font1);
+  border-radius: 5px;
+}
+
+.cta {
+  background-color: var(--color2);
+  color: var(--font1);
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 15px 30px;
+  margin: 20px 0;
+  display: inline-block;
+}
+
+.cta:hover {
+  background-color: var(--color3);
+  color: var(--font1);
+  border: 1px solid var(--font1);
+  padding: 15px 30px;
+  margin: 20px 0;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+#contactForm {
+  padding: 20px;
+  margin-left: 20px;
+  background-color: var(--color2);
+  color: var(--font1);
+  border: 0.5px solid var(--font1);
+  border-radius: 10px;
+}
+
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 2px solid var(--color1);
+  border-radius: 4px;
+  background-color: #fff;
+  color: var(--font1);
+  font-size: 16px;
+}
+
+#contactForm button,
+#mapSection button {
+  background-color: #fff;
+  color: var(--font1);
+  border: none;
+  border-radius: 10px;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#contactForm button:hover,
+#mapSection button:hover {
+  background-color: var(--color3);
+  color: var(--font1);
+  border: 1px solid var(--font1);
+}
+
+.cta-2 {
+  background-color: var(--color1);
+  color: var(--font1);
+  border: 0.3px solid var(--font1);
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.cta-2 a {
+  text-decoration: underline;
+  color: var(--font1);
+}
+.cta-2 h3 {
+  margin-top: 30px;
+  color: whitesmoke;
+}
+
+.footer-1 {
+  border: 0.3px solid var(--font1);
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.footer-1 ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.footer-1 li {
+  display: inline-block;
+  margin-right: 40px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#mapSection {
+  background-color: var(--color3);
+  color: var(--font1);
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px 0;
+  background-position: center center;
+  background-size: cover;
+}
+
+#mapSection input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+.footer-2 {
+  background-color: var(--color3);
+  color: var(--font1);
+  text-align: center;
+}
+
+.footer-2 p {
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif, Geneva, Tahoma,
+    sans-serif;
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.footer-2 a {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.footer-2 a:hover {
+  color: #989090;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: underline;
+}

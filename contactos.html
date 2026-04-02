@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contactos</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.c
+ss"
+    />
+  </head>
+  <body>
+    <header>
+      <main>
+        <section class="minhas-skills">
+          <h1>Contactos</h1>
+          <nav class="menu">
+            <ul>
+              <li><a href="projeto.html">Home</a></li>
+              <li><a href="sobre.html">Sobre </a></li>
+
+              <li class="dropdown">
+                <a href="">Projetos</a>
+
+                <div class="dropdown-menu">
+                  <a href="../Projetos/projeto-front-end.html">Front-end</a>
+                  <a href="../Projetos/projeto-back-end.html">Back-end</a>
+                  <a href="../Projetos/projeto-uxui.html">UxUi</a>
+                </div>
+              </li>
+
+              <li><a href="serviços.html">Serviços</a></li>
+              <li><a href="contactos.html">Contactos</a></li>
+            </ul>
+          </nav>
+          <div class="contacto">
+            <h2>Contacte-me</h2>
+            <p>Se precisar de ajuda, entre em contacto comigo.</p>
+            <a href="#formMessage" class="cta"> Formulário de Contactos</a>
+            <a href="https://wa.me/928112688" class="cta" target="_blank"
+              >Envie-me um whatsapp</a
+            >
+          </div>
+        </section>
+
+        <section>
+          <div id="formMessage">
+            <form action="" id="contactForm" class="needs-validation">
+              <div class="mb-3">
+                <h2>Formulário de Contactos</h2>
+                <label for="name" class="form-label">Nome:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  required
+                />
+
+                <label for="bDate" class="form-label"
+                  >Data de Nascimento:</label
+                >
+                <input
+                  type="date"
+                  id="bDate"
+                  name="bDate"
+                  class="form-control"
+                  required
+                />
+
+                <label for="email" class="form-label">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  required
+                />
+
+                <label for="telefone" class="form-label">Telefone:</label>
+                <input
+                  type="tel"
+                  id="telefone"
+                  name="telefone"
+                  class="form-control"
+                  required
+                />
+                <label for="message" class="form-label">Mensagem:</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-control"
+                  required
+                ></textarea>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </div>
+            </form>
+            <section id="mapSection" class="mb-5" style="margin: 20px 0px">
+              <h2 class="mb-4">Onde estou</h2>
+              <div>
+                <label for="destination" class="form-label"
+                  >Qual a sua localização?</label
+                >
+                <input
+                  type="text"
+                  id="destination"
+                  class="formcontrol"
+                  style="margin: 20px 0px"
+                />
+                <button onclick="calculateRoute()" class="btn btnprimary">
+                  Calcular rota
+                </button>
+              </div>
+              <div id="map" style="margin: 20px 0px; height: 400px"></div>
+            </section>
+          </div>
+        </section>
+        <section class="cta-2">
+          <h2>Obrigada por me visitar!</h2>
+          <div>
+            <h3>Pronto para comecar?</h3>
+            <p>
+              Vamos transformar a sua ideia em realidade. Entre em
+              <a href="contactos.html"><strong>contacto</strong></a> agora
+              mesmo!
+            </p>
+          </div>
+          <div>
+            <h3>Explore o meu portfolio</h3>
+            <p>
+              Confira <a href="../Projetos/"><strong>exemplos</strong></a> do
+              meu trabalho e veja como posso ajudar-lo.
+            </p>
+          </div>
+          <div>
+            <h3>Conecte-se comigo</h3>
+            <p>
+              <a href="#"><strong>Siga-me</strong></a> nas redes sociais para
+              ficar por dentro das novidades.
+            </p>
+          </div>
+        </section>
+      </main>
+    </header>
+
+    <script src="../js/validacao.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js
+"></script>
+
+    <script>
+      var fixedLocation = L.latLng(38.736946, -9.142685);
+      //localização fixa
+      var map = L.map("map").setView(fixedLocation, 13);
+      marker = L.marker(fixedLocation).addTo(map);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+      }).addTo(map);
+      function calculateRoute() {
+        var destination = document.getElementById("destination").value;
+        var url =
+          "https://nominatim.openstreetmap.org/search?format=json&q=" +
+          destination;
+
+        fetch(url)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (json) {
+            var lat = json[0].lat;
+            var lon = json[0].lon;
+            var routeUrl =
+              "https://www.openstreetmap.org/directions?engine=graphhopper_car&route=" +
+              fixedLocation.lat +
+              "," +
+              fixedLocation.lng +
+              ";" +
+              lat +
+              "," +
+              lon;
+            window.open(routeUrl, "_blank");
+          });
+      }
+    </script>
+  </body>
+</html>
