@@ -1,15 +1,193 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contactos</title>
-    <link rel="stylesheet" href="../css/style.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.c
 ss"
     />
+    <style>
+      :root {
+        --font1: #56070c;
+        --font2: #280903;
+        --color1: #873632;
+        --color2: #a9534d;
+        --color3: #075651;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #f5f5f5;
+        color: var(--font2);
+      }
+
+      .menu {
+        background-color: var(--color3);
+        position: relative; /* Adicione esta linha */
+        margin-bottom: 40px;
+      }
+
+      .menu li {
+        display: inline-block;
+        margin: 30px 10px;
+      }
+
+      .menu li a {
+        display: block;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+
+      .menu li a:hover {
+        color: var(--font2);
+        text-decoration: underline;
+        text-decoration-color: var(--font2);
+      }
+
+      header {
+        background: var(--color1);
+        color: var(--font2);
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+
+      .minhas-skills {
+        border: 0.3px solid var(--font1);
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px;
+      }
+
+      /* SECTION */
+
+      section {
+        max-width: 1000px;
+        margin: auto;
+        padding: 30px;
+      }
+
+      h2 {
+        color: var(--font1);
+        margin-bottom: 15px;
+      }
+
+      /* FORM */
+
+      form {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 30px;
+      }
+
+      #contactForm {
+        padding: 20px;
+        margin-left: 20px;
+        background-color: var(--color2);
+        color: var(--font1);
+        border: 0.5px solid var(--font1);
+        border-radius: 10px;
+      }
+
+      #contactForm input,
+      #contactForm textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        border: 2px solid var(--color1);
+        border-radius: 4px;
+        background-color: #fff;
+        color: var(--font1);
+        font-size: 16px;
+      }
+
+      #contactForm button,
+      #mapSection button {
+        background-color: #fff;
+        color: var(--font1);
+        border: none;
+        border-radius: 10px;
+        padding: 15px 30px;
+        font-size: 16px;
+        font-family: "DM Sans", sans-serif;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      #contactForm button:hover,
+      #mapSection button:hover {
+        background-color: var(--color3);
+        color: var(--font1);
+        border: 1px solid var(--font1);
+      }
+      /* BUTTON */
+
+      button {
+        background: var(--color3);
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: var(--color1);
+      }
+
+      /* RESPONSIVE */
+
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+          display: block;
+        }
+
+        th {
+          display: none;
+        }
+
+        td {
+          padding: 10px;
+          border-bottom: 1px solid #ddd;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -18,20 +196,10 @@ ss"
           <h1>Contactos</h1>
           <nav class="menu">
             <ul>
-              <li><a href="projeto.html">Home</a></li>
+              <li><a href="portifolio.html">Home</a></li>
               <li><a href="sobre.html">Sobre </a></li>
 
-              <li class="dropdown">
-                <a href="">Projetos</a>
-
-                <div class="dropdown-menu">
-                  <a href="../Projetos/projeto-front-end.html">Front-end</a>
-                  <a href="../Projetos/projeto-back-end.html">Back-end</a>
-                  <a href="../Projetos/projeto-uxui.html">UxUi</a>
-                </div>
-              </li>
-
-              <li><a href="serviços.html">Serviços</a></li>
+              <li><a href="servicos.html">Serviços</a></li>
               <li><a href="contactos.html">Contactos</a></li>
             </ul>
           </nav>
@@ -130,8 +298,8 @@ ss"
           <div>
             <h3>Explore o meu portfolio</h3>
             <p>
-              Confira <a href="../Projetos/"><strong>exemplos</strong></a> do
-              meu trabalho e veja como posso ajudar-lo.
+              Confira <a href="/projetos/"><strong>exemplos</strong></a> do meu
+              trabalho e veja como posso ajudar-lo.
             </p>
           </div>
           <div>
@@ -145,7 +313,7 @@ ss"
       </main>
     </header>
 
-    <script src="../js/validacao.js"></script>
+    <script src="/js/validacao.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js
 "></script>

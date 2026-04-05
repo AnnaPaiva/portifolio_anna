@@ -1,48 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sobre</title>
-    <link rel="stylesheet" href="../css/style.css" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "DM Sans", sans-serif;
+        font-style: normal;
+      }
+
+      :root {
+        --font1: #56070c;
+        --font2: #280903;
+        --color1: #873632;
+        --color2: #a9534d;
+        --color3: #075651;
+      }
+
+      body {
+        background: linear-gradient(135deg, var(--color1), var(--color2));
+        color: var(--font2);
+        margin-left: 2%;
+        margin-right: 2%;
+      }
+      section h2 {
+        color: var(--font1);
+        font-size: 42px;
+        margin-left: 20px 0;
+      }
+      section p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-left: 20px;
+        margin-top: 20px;
+      }
+
+      header .logo {
+        display: inline-flex;
+        padding: 20px;
+        margin: 20px;
+      }
+
+      header .logo img {
+        margin-right: 25px;
+      }
+
+      .menu {
+        background-color: var(--color3);
+        position: relative; /* Adicione esta linha */
+        margin-bottom: 40px;
+      }
+
+      .menu li {
+        display: inline-block;
+        margin: 30px 10px;
+      }
+
+      .menu li a {
+        display: block;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+
+      .menu li a:hover {
+        color: var(--font2);
+        text-decoration: underline;
+        text-decoration-color: var(--font2);
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        box-shadow: 0 0 2px #000;
+        display: none;
+        background-color: #333;
+        color: var(--font1);
+      }
+
+      .dropdown-menu a {
+        display: block;
+        padding: 10px;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      a:hover {
+        color: var(--font2);
+      }
+    </style>
   </head>
   <body>
     <header>
       <h1>Sobre</h1>
       <nav class="menu">
         <ul>
-          <li><a href="projeto.html">Home</a></li>
+          <li><a href="portifolio.html">Home</a></li>
           <li><a href="sobre.html">Sobre </a></li>
 
           <li class="dropdown">
             <a href="">Projetos</a>
 
             <div class="dropdown-menu">
-              <a href="../Projetos/projeto-front-end.html">Front-end</a>
-              <a href="../Projetos/projeto-back-end.html">Back-end</a>
-              <a href="../Projetos/projeto-uxui.html">UxUi</a>
+              <a href="projetos/projeto-front-end.html">Front-end</a>
+              <a href="projetos/projeto-back-end.html">Back-end</a>
+              <a href="projetos/projeto-uxui.html">UxUi</a>
             </div>
           </li>
 
-          <li><a href="serviços.html">Serviços</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
           <li><a href="contactos.html">Contactos</a></li>
 
-          <li style="position: relative; display: inline-block">
-            <i
-              id="searchIcon"
-              class="fa fa-search"
-              style="font-size: 15px; cursor: pointer"
-            ></i>
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Pesquisar..."
-              style="display: none; margin-left: 10px"
-            />
-            <button id="searchBtn" style="display: none; margin-left: 5px">
-              Buscar
-            </button>
-          </li>
+          <section>
+            <h2>Sobre mim</h2>
+            <p>
+              Olá! Sou Anna Paiva, uma entusiasta do desenvolvimento web com
+              paixão por criar experiências digitais envolventes. Com um
+              background em design e programação, estou sempre em busca de
+              aprender novas tecnologias e aprimorar minhas habilidades. Meu
+              objetivo é transformar ideias em realidade através de soluções
+              inovadoras e funcionais. Seja para projetos pessoais ou
+              profissionais, estou comprometida em entregar resultados de alta
+              qualidade e superar expectativas.
+            </p>
+          </section>
         </ul>
       </nav>
     </header>

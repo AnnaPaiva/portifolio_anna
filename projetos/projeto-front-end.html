@@ -1,24 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projetos em HTML</title>
+
+    <style>
+      :root {
+        --font1: #56070c;
+        --font2: #280903;
+        --color1: #873632;
+        --color2: #a9534d;
+        --color3: #075651;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #873632;
+        color: var(--font2);
+      }
+
+      header {
+        background: var(--color1);
+        margin-bottom: 40px;
+        color: white;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      header p {
+        font-size: 24px;
+      }
+
+      header p img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        margin-left: 10px;
+      }
+    </style>
   </head>
   <body>
     <header>
       <div>
         <h1>Projetos</h1>
         <div>
-          <a href="../Portifólio.html">Home</a>
+          <a href="../portifolio.html">Home</a>
         </div>
         <p id="frontend">
-          Front-end <img src="../Photos/back.jpg" alt="Front-end" />
+          Front-end <a href="projeto-front-end.html"></a
+          ><img src="../Photos/foto.jpg" alt="Front-end" />
         </p>
         <p id="backend">
-          Back-end <img src="../Photos/back.jpg" alt="Back-end" />
+          Back-end <a href="projeto-back-end.html"></a
+          ><img src="../Photos/foto2.jpg" alt="Back-end" />
         </p>
-        <p id="iduxui">UI/UX <img src="../Photos/back.jpg" alt="UxUi" /></p>
+        <p id="iduxui">
+          UI/UX <a href="projeto-uxui.html"></a
+          ><img src="../Photos/foto3.jpg" alt="UxUi" />
+        </p>
       </div>
     </header>
   </body>
