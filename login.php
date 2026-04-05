@@ -123,9 +123,9 @@
 
         <form action="login_process.php" method="POST">
 
-            <input type="text" name="username" placeholder="Nome de utilizador" required>
+            <input type="text" name="user" placeholder="Nome de utilizador" required>
 
-            <input type="password" name="password" placeholder="Senha" required>
+            <input type="password" name="pass" placeholder="Senha" required>
 
             <button type="submit">Entrar</button>
 

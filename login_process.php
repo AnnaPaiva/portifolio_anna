@@ -3,8 +3,8 @@
 session_start();
 include "db.php";
 
-$username = $_POST["username"];
-$password = $_POST["password"];
+$username = $_POST["user"] ?? null;
+$password = $_POST["pass"] ?? null;
 
 $sql = "SELECT * FROM users WHERE username='$username'";
 $result = $conn->query($sql);

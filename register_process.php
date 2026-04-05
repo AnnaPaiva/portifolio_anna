@@ -7,6 +7,7 @@ $email = trim($_POST["email"]);
 $password = $_POST["password"];
 $confirm = $_POST["confirm_password"];
 $type = $_POST["user_type"];
+$profilePic = $_FILES["profile_pic"];
 
 $response = [];
 
@@ -51,9 +52,8 @@ if ($result->num_rows > 0) {
 
 $uploadDir = "uploads/";
 $imageName = basename($_FILES["profile_pic"]["name"]);
-$imagePath = $uploadDir . $imageName;
 
-move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $imagePath);
+move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $uploadDir . $imageName);
 
 /* HASH DA SENHA */
 
@@ -62,7 +62,7 @@ $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 /* INSERT */
 
 $sql = "INSERT INTO users(username,email,password_hash,user_type,profile_pic)
-VALUES('$username','$email','$passwordHash','$type','$imagePath')";
+VALUES('$username','$email','$passwordHash','$type','$imageName')";
 
 $conn->query($sql);
 

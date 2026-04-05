@@ -17,18 +17,30 @@ if (isset($_POST["addProject"])) {
     $title       = htmlspecialchars($_POST["title"]);
     $description = htmlspecialchars($_POST["description"]);
     $category    = $_POST["category"];
-    $imagePath   = "";
+
+    // SEMPRE declarar a variável antes
+    $imagePath = "";
 
     // Upload de imagem
     if (!empty($_FILES["image"]["name"])) {
+
+        $uploadDir = "uploads/";
         $imageName = basename($_FILES["image"]["name"]);
-        $imagePath = $uploadDir . time() . "_" . $imageName; // evita sobrescrever arquivos
-        move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
+        $imagePath = $uploadDir . time() . "_" . $imageName;
+
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath)) {
+            // OK
+        } else {
+            echo "<b>Erro ao mover arquivo!</b>";
+        }
     }
 
-    // Inserção segura com prepared statement
-    $stmt = $conn->prepare("INSERT INTO projects (title, description, category_id, creation_date) VALUES (?, ?, ?, NOW())");
-    $stmt->bind_param("ssi", $title, $description, $category);
+    // Inserção no banco
+    $stmt = $conn->prepare("
+        INSERT INTO projects (title, description, category_id, image, creation_date)
+        VALUES (?, ?, ?, ?, NOW())
+    ");
+    $stmt->bind_param("ssis", $title, $description, $category, $imagePath);
     $stmt->execute();
     $stmt->close();
 }
@@ -311,6 +323,8 @@ if (isset($_POST["search"])) {
                 <td><?php echo $p["description"]; ?></td>
 
                 <td><?php echo $p["category_name"]; ?></td>
+
+                <td><?php echo $p["image"]; ?></td>
 
                 <td><?php echo $p["creation_date"]; ?></td>
 

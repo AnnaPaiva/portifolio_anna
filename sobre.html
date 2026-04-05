@@ -95,6 +95,112 @@
       a:hover {
         color: var(--font2);
       }
+      /* --- SEÇÃO SOBRE MIM --- */
+
+      /* --- SEÇÃO SOBRE MIM (versão com fundo color3) --- */
+
+      .about-me-section {
+        padding: 40px;
+        max-width: 1100px;
+        margin: 40px auto;
+        background: var(--color3); /* ← AQUI está a mudança */
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        color: #fff; /* texto branco para contraste */
+      }
+
+      .about-me-container {
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+      }
+
+      .about-me-photo img {
+        width: 260px;
+        height: 260px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        border: 3px solid #fff; /* borda branca para destacar */
+      }
+
+      .about-me-text h2 {
+        color: #fff;
+        margin-bottom: 15px;
+        font-size: 32px;
+      }
+
+      .about-me-text h3 {
+        color: #ffd9d7; /* tom claro que combina com tua paleta */
+        margin-top: 25px;
+        margin-bottom: 8px;
+        font-size: 22px;
+      }
+
+      .about-me-text p {
+        font-size: 17px;
+        line-height: 1.7;
+        color: #f8f8f8;
+        margin-bottom: 10px;
+      }
+
+      .about-list {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .about-list li {
+        margin-bottom: 6px;
+        padding-left: 18px;
+        position: relative;
+        color: #fff;
+      }
+
+      .about-list li::before {
+        content: "•";
+        color: #ffd9d7;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+
+      /* Responsivo */
+      @media (max-width: 768px) {
+        .about-me-container {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .about-me-photo img {
+          width: 200px;
+          height: 200px;
+          margin: 0 auto;
+        }
+      }
+
+      .sv {
+        background: var(--color3);
+        color: #fff;
+        font-weight: bold;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      .cv-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 25px;
+        background: var(--color3);
+        color: #fff;
+        font-weight: bold;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .cv-button:hover {
+        background: var(--color1);
+      }
     </style>
   </head>
   <body>
@@ -115,21 +221,68 @@
             </div>
           </li>
 
-          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="servicos.php">Serviços</a></li>
           <li><a href="contactos.html">Contactos</a></li>
 
-          <section>
-            <h2>Sobre mim</h2>
-            <p>
-              Olá! Sou Anna Paiva, uma entusiasta do desenvolvimento web com
-              paixão por criar experiências digitais envolventes. Com um
-              background em design e programação, estou sempre em busca de
-              aprender novas tecnologias e aprimorar minhas habilidades. Meu
-              objetivo é transformar ideias em realidade através de soluções
-              inovadoras e funcionais. Seja para projetos pessoais ou
-              profissionais, estou comprometida em entregar resultados de alta
-              qualidade e superar expectativas.
-            </p>
+          <section class="about-me-section">
+            <div class="about-me-container">
+              <!-- FOTO DA ANNA -->
+              <div class="about-me-photo">
+                <img src="Photos/Anna.jpeg" alt="Foto de Anna" />
+              </div>
+
+              <!-- TEXTO SOBRE VOCÊ -->
+              <div class="about-me-text">
+                <h2>Sobre Mim</h2>
+
+                <p>
+                  Olá! Sou a Anna, desenvolvedora web apaixonada por criar
+                  experiências digitais funcionais, modernas e visualmente
+                  atraentes. Trabalho com foco em usabilidade, organização e
+                  clareza, sempre buscando transformar ideias em soluções reais.
+                </p>
+
+                <p>
+                  Tenho experiência em desenvolvimento front-end e back-end,
+                  utilizando tecnologias como HTML, CSS, JavaScript, PHP, MySQL
+                  e SQL Server. Gosto de trabalhar com projetos completos, desde
+                  a estruturação do banco de dados até a interface final.
+                </p>
+
+                <p>
+                  Sou dedicada, organizada e adoro aprender coisas novas. Cada
+                  projeto é uma oportunidade de evoluir e entregar algo melhor
+                  do que antes.
+                </p>
+
+                <h3>O que eu faço</h3>
+                <ul class="about-list">
+                  <li>Desenvolvimento de websites completos</li>
+                  <li>Criação de interfaces modernas e responsivas</li>
+                  <li>Modelagem e gestão de bases de dados</li>
+                  <li>Automação de processos e sistemas internos</li>
+                  <li>Criação de portfólios e páginas profissionais</li>
+                </ul>
+
+                <h3>Minha Missão</h3>
+                <p>
+                  Criar soluções digitais que sejam intuitivas, eficientes e que
+                  realmente ajudem pessoas e negócios a alcançarem seus
+                  objetivos. Entre nos meus
+                  <a href="servicos.php" class="sv"
+                    ><strong>serviços</strong></a
+                  >
+                  e confira meu projetos para ver como posso ajudar você a
+                  transformar suas ideias em realidade!
+                </p>
+                <br />
+                <p>
+                  <a href="docs/curriculo_Anna.pdf" download class="cv-button">
+                    Baixar Currículo
+                  </a>
+                </p>
+              </div>
+            </div>
           </section>
         </ul>
       </nav>
